@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/BaseModel.php';
+
 final class Respostas extends BaseModel implements JsonSerializable {
     
     private $id;
@@ -8,6 +10,7 @@ final class Respostas extends BaseModel implements JsonSerializable {
 
     public function __construct()
     {
+        parent::__construct();
         $this->tabela = "tb_respostas";
     }
 

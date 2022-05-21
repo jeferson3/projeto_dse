@@ -2,7 +2,7 @@
 
 define('BASE_URL', $_SERVER['DOCUMENT_ROOT']);
 
-$rota = $_SERVER['REQUEST_URI'];
+$rota = $_SERVER['PATH_INFO'];
 
 switch ($rota) {
     case '/':
@@ -10,7 +10,7 @@ switch ($rota) {
         break;
     
     case '/play':
-        require BASE_URL . '/app/views/nickname.html';
+        require BASE_URL . '/app/controllers/GameController/perguntas.php';
         break;
 
     case '/game':
