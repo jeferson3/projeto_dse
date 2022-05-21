@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 21-Maio-2022 às 21:00
+-- Tempo de geração: 21-Maio-2022 às 22:53
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.4
 
@@ -34,6 +34,15 @@ CREATE TABLE `tb_perguntas` (
   `resposta_certa` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tb_perguntas`
+--
+
+INSERT INTO `tb_perguntas` (`id`, `pergunta`, `tipo`, `resposta_certa`) VALUES
+(1, '<p>Complete a frase:</br>\r\nA barata não lava o *\r\n</p>', 'COMPLETAR_FRASE', 'pé'),
+(2, 'Qual das opções abaixo é a imagem de uma girafa?', 'ASSOCIAR_IMAGENS', '{\r\n\"label\": \"girafa\",\r\n\"url\": \"https://img.freepik.com/vetores-gratis/desenho-de-girafa-fofa_70172-1166.jpg\"\r\n}'),
+(3, 'Qual das opções abaixo é a imagem de um gato?', 'ASSOCIAR_IMAGENS', '{\r\n\"label\": \"gato\",\r\n\"url\": \"https://img.freepik.com/vetores-gratis/desenho-de-gato-bonito_33070-2474.jpg\"\r\n}');
+
 -- --------------------------------------------------------
 
 --
@@ -42,9 +51,21 @@ CREATE TABLE `tb_perguntas` (
 
 CREATE TABLE `tb_respostas` (
   `id` int(11) NOT NULL,
-  `resposta` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`resposta`)),
+  `resposta` longtext NOT NULL,
   `tipo` enum('COMPLETAR_FRASE','ASSOCIAR_IMAGENS','DECIFRAR_AUDIO') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_respostas`
+--
+
+INSERT INTO `tb_respostas` (`id`, `resposta`, `tipo`) VALUES
+(1, 'pé', 'COMPLETAR_FRASE'),
+(2, 'cachorro', 'COMPLETAR_FRASE'),
+(3, '{\r\n\"label\": \"girafa\",\r\n\"url\": \"https://img.freepik.com/vetores-gratis/desenho-de-girafa-fofa_70172-1166.jpg\"\r\n}', 'ASSOCIAR_IMAGENS'),
+(4, '\"label\": \"gato\",\r\n\"url\": \"https://img.freepik.com/vetores-gratis/desenho-de-gato-bonito_33070-2474.jpg\"', 'ASSOCIAR_IMAGENS'),
+(5, '{\r\n\"label\": \"pássado\",\r\n\"url\": \"https://i.pinimg.com/736x/af/b8/5b/afb85b420e24c9e874cbbd34ec413de0.jpg\"\r\n}', 'ASSOCIAR_IMAGENS'),
+(6, 'galinha', 'COMPLETAR_FRASE');
 
 --
 -- Índices para tabelas despejadas
@@ -70,13 +91,13 @@ ALTER TABLE `tb_respostas`
 -- AUTO_INCREMENT de tabela `tb_perguntas`
 --
 ALTER TABLE `tb_perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tb_respostas`
 --
 ALTER TABLE `tb_respostas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
