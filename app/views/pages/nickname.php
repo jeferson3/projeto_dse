@@ -9,16 +9,13 @@
 
 <script>
     $(document).ready(function () {
-        if (localStorage.getItem('nickname')){
-            localStorage.removeItem('nickname');
-        }
-        if (localStorage.getItem('pergunta')){
-            localStorage.removeItem('pergunta');
-        }
+        localStorage.removeItem('nickname');
+        localStorage.removeItem('pergunta');
 
         $('#nickname_submit').submit(e => {
             e.preventDefault();
             localStorage.setItem('nickname', $('#nickname').val())
+            novaPergunta()
         })
     })
 </script>

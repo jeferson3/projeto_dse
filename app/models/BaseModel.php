@@ -36,4 +36,15 @@ class BaseModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
+    /**
+     * @param string|null $tipo
+     * @return mixed
+     */
+    public function buscarPeloTipo(string $tipo = null)
+    {
+        $query = "SELECT * FROM " . $this->tabela . " WHERE tipo = '${tipo}'";
+        $query = $this->con->query($query);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
 }

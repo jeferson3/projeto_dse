@@ -14,10 +14,6 @@ switch ($rota) {
         require BASE_PATH . '/app/controllers/GameController/perguntas.php';
         break;
 
-    case '/game':
-        require BASE_PATH . '/app/views/game.php';
-        break;
-    
     default:
         require BASE_PATH . '/app/views/not_found.php';
         break;

@@ -1,4 +1,10 @@
-var palavra = 'GATO';
+var pergunta = JSON.parse(localStorage.getItem('pergunta'));
+var perguntaQuestao = JSON.parse(pergunta.pergunta);
+
+$('.pergunta p').text(perguntaQuestao.pergunta)
+$('.img-pergunta').attr('src', perguntaQuestao.imagem)
+
+var palavra = pergunta.resposta_certa;
 var arr_opcoes = shuffle(Array.from(palavra));
 var arr_resposta = [];
 var opcoes = document.getElementById("opcoes");
@@ -45,16 +51,17 @@ function adicionarResposta(li) {
         li.innerHTML = '';
         if (arr_resposta.indexOf('') == -1) {            
             if (palavra === arr_resposta.toString().replace(/\,/g, '')){
-                router(4);
+                alert("Certa resposta");
+                novaPergunta();
             }
             else {
+                alert("Resposta errada!");
                 children.forEach(el => {
                     removerResposta(el);
                 });
             }
         }
     }    
-    console.log(arr_opcoes)
 }
 
 function removerResposta(li) {
@@ -70,7 +77,6 @@ function removerResposta(li) {
         }
         li.innerHTML = '';
     }
-    console.log(arr_resposta)
 
 }
 
