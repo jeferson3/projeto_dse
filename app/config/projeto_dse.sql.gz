@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 21-Maio-2022 às 22:53
+-- Tempo de geração: 23-Maio-2022 às 00:38
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.4
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `tb_perguntas` (
   `id` int(11) NOT NULL,
   `pergunta` text NOT NULL,
-  `tipo` enum('COMPLETAR_FRASE','ASSOCIAR_IMAGENS','DECIFRAR_AUDIO') NOT NULL,
+  `tipo` enum('COMPLETAR_FRASE','ASSOCIAR_IMAGENS','DECIFRAR_AUDIO','NOME_OBJETO') NOT NULL,
   `resposta_certa` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,7 +41,13 @@ CREATE TABLE `tb_perguntas` (
 INSERT INTO `tb_perguntas` (`id`, `pergunta`, `tipo`, `resposta_certa`) VALUES
 (1, '<p>Complete a frase:</br>\r\nA barata não lava o *\r\n</p>', 'COMPLETAR_FRASE', 'pé'),
 (2, 'Qual das opções abaixo é a imagem de uma girafa?', 'ASSOCIAR_IMAGENS', '{\r\n\"label\": \"girafa\",\r\n\"url\": \"https://img.freepik.com/vetores-gratis/desenho-de-girafa-fofa_70172-1166.jpg\"\r\n}'),
-(3, 'Qual das opções abaixo é a imagem de um gato?', 'ASSOCIAR_IMAGENS', '{\r\n\"label\": \"gato\",\r\n\"url\": \"https://img.freepik.com/vetores-gratis/desenho-de-gato-bonito_33070-2474.jpg\"\r\n}');
+(3, 'Qual das opções abaixo é a imagem de um gato?', 'ASSOCIAR_IMAGENS', '{\n\"label\": \"gato\",\n\"url\": \"https://img.freepik.com/vetores-gratis/desenho-de-gato-bonito_33070-2474.jpg\"\n}'),
+(4, 'Girafa', 'DECIFRAR_AUDIO', 'girafa'),
+(5, 'Coelho', 'DECIFRAR_AUDIO', 'coelho'),
+(6, 'Carro', 'DECIFRAR_AUDIO', 'carro'),
+(7, 'Cadeira', 'DECIFRAR_AUDIO', 'cadeira'),
+(8, '{\r\n\"pergunta\": \"Qual o nome do animal da imagem?\",\r\n\"imagem\": \"https://i.pinimg.com/originals/00/3a/85/003a8590414884afa8fd8b23935fe1cb.png\"\r\n}', 'NOME_OBJETO', 'girafa'),
+(9, '{\r\n\"pergunta\": \"Qual o nome do animal da imagem?\",\r\n\"imagem\": \"https://img.freepik.com/vetores-gratis/desenho-de-gato-bonito_33070-2474.jpg\"\r\n}', 'NOME_OBJETO', 'gato');
 
 -- --------------------------------------------------------
 
@@ -65,7 +71,10 @@ INSERT INTO `tb_respostas` (`id`, `resposta`, `tipo`) VALUES
 (3, '{\r\n\"label\": \"girafa\",\r\n\"url\": \"https://img.freepik.com/vetores-gratis/desenho-de-girafa-fofa_70172-1166.jpg\"\r\n}', 'ASSOCIAR_IMAGENS'),
 (4, '\"label\": \"gato\",\r\n\"url\": \"https://img.freepik.com/vetores-gratis/desenho-de-gato-bonito_33070-2474.jpg\"', 'ASSOCIAR_IMAGENS'),
 (5, '{\r\n\"label\": \"pássado\",\r\n\"url\": \"https://i.pinimg.com/736x/af/b8/5b/afb85b420e24c9e874cbbd34ec413de0.jpg\"\r\n}', 'ASSOCIAR_IMAGENS'),
-(6, 'galinha', 'COMPLETAR_FRASE');
+(6, 'galinha', 'COMPLETAR_FRASE'),
+(7, 'gato', 'COMPLETAR_FRASE'),
+(8, 'girafa', 'COMPLETAR_FRASE'),
+(9, 'coelho', 'COMPLETAR_FRASE');
 
 --
 -- Índices para tabelas despejadas
@@ -91,13 +100,13 @@ ALTER TABLE `tb_respostas`
 -- AUTO_INCREMENT de tabela `tb_perguntas`
 --
 ALTER TABLE `tb_perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tb_respostas`
 --
 ALTER TABLE `tb_respostas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
