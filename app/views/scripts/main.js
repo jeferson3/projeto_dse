@@ -1,25 +1,26 @@
-const url = window.location.href + "/app/views/";
+const path = window.location.href + "/app/views/";
+const url  = "http://localhost:8000";
 
 function router (page) {
     switch (page) {
         case 1:
-            $("body .container").load(url+"pages/inicio.html");
+            $("body .container").load(path+"pages/inicio.php");
             break;
         case 2:
-            $("body .container").load(url+"pages/nickname.php");
+            $("body .container").load(path+"pages/nickname.php");
             break;
         case 3:
-            $("body .container").load(url+"pages/pergunta1.html");
+            $("body .container").load(path+"pages/pergunta1.php");
             break;
         case 4:
-            $("body .container").load(url+"pages/pergunta2.html");
+            $("body .container").load(path+"pages/pergunta2.php");
             break;
     }
 }
 
 function novaPergunta() {
     $.ajax({
-        url: "/play",
+        url: url + "/play",
         success: res => {
             if (res !== undefined) {
                 localStorage.setItem('pergunta', JSON.stringify(res));
