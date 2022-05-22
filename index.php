@@ -1,23 +1,24 @@
 <?php
 
-define('BASE_URL', $_SERVER['DOCUMENT_ROOT']);
+define('BASE_PATH', $_SERVER['DOCUMENT_ROOT']);
+define('BASE_URL', 'http://localhost:8000');
 
-$rota = $_SERVER['PATH_INFO'];
+$rota = $_SERVER['REQUEST_URI'];
 
 switch ($rota) {
     case '/':
-        require BASE_URL . '/app/views/index.html';
+        require BASE_PATH . '/app/views/index.php';
         break;
     
     case '/play':
-        require BASE_URL . '/app/controllers/GameController/perguntas.php';
+        require BASE_PATH . '/app/controllers/GameController/perguntas.php';
         break;
 
     case '/game':
-        require BASE_URL . '/app/views/game.html';
+        require BASE_PATH . '/app/views/game.php';
         break;
     
     default:
-        require BASE_URL . '/app/views/not_found.html';
+        require BASE_PATH . '/app/views/not_found.php';
         break;
 }

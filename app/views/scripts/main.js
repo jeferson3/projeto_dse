@@ -1,4 +1,4 @@
-const url = window.location.href;
+const url = window.location.href + "/app/views/";
 
 function router (page) {
     switch (page) {
