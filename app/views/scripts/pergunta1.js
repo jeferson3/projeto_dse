@@ -25,7 +25,7 @@ function carregarDados() {
         li_o.innerHTML = el;
         opcoes.appendChild(li_o);
         resposta.appendChild(li_r);
-        arr_resposta.push(' ');
+        arr_resposta.push('');
     });
 }
 carregarDados();
@@ -37,12 +37,23 @@ function adicionarResposta(li) {
             if (children[i].innerHTML == '') {
                 children[i].innerHTML = li.innerHTML;
                 arr_resposta[children[i].dataset.indexNumber] = li.innerHTML;
-                arr_opcoes.splice(li.dataset.indexNumber, 1, ' ');            
+                arr_opcoes.splice(li.dataset.indexNumber, 1, '');            
                 break;
             }
         }
+
         li.innerHTML = '';
-    }
+        if (arr_resposta.indexOf('') == -1) {            
+            if (palavra === arr_resposta.toString().replace(/\,/g, '')){
+                router(4);
+            }
+            else {
+                children.forEach(el => {
+                    removerResposta(el);
+                });
+            }
+        }
+    }    
     console.log(arr_opcoes)
 }
 
@@ -53,7 +64,7 @@ function removerResposta(li) {
             if (children[i].innerHTML == '') {
                 children[i].innerHTML = li.innerHTML;
                 arr_opcoes[children[i].dataset.indexNumber] = li.innerHTML;
-                arr_resposta.splice(li.dataset.indexNumber, 1, ' '); 
+                arr_resposta.splice(li.dataset.indexNumber, 1, ''); 
                 break;
             }
         }

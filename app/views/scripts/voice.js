@@ -1,5 +1,4 @@
 var btnSpeak = document.querySelector('#btnSpeak');
-var txtInput = document.querySelector('#txtInput');
 
 speaks = [
   {
@@ -12,9 +11,9 @@ btnSpeak.addEventListener('click', () => {
 
   const msg = new SpeechSynthesisUtterance();
   msg.volume = 1; //define o volume do áudio (de 0 a 1)
-  msg.rate = 1; // define a velocidade do áudio (0.1 a 1)
+  msg.rate = 0.5; // define a velocidade do áudio (0.1 a 1)
   msg.pitch = 1; // define o tom em que o áudio é falado ( de 0 a 2)
-  msg.text = txtInput.value;
+  msg.text = palavra;
   
   
   const voice = speaks[0];

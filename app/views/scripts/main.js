@@ -1,9 +1,8 @@
 const url = window.location.href;
 
-
 function router (page) {
     switch (page) {
-        case 2:
+        case 1:
             $("body .container").load(url+"pages/inicio.html");
             break;
         case 2:
@@ -11,6 +10,9 @@ function router (page) {
             break;
         case 3:
             $("body .container").load(url+"pages/pergunta1.html");
+            break;
+        case 4:
+            $("body .container").load(url+"pages/pergunta2.html");
             break;
     }
 }
