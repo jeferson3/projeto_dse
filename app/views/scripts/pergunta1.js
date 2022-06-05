@@ -52,6 +52,7 @@ function adicionarResposta(li) {
         if (arr_resposta.indexOf('') == -1) {            
             if (palavra === arr_resposta.toString().replace(/\,/g, '')){
                 alert("Certa resposta");
+                salvarPergunta(pergunta.id);
                 novaPergunta();
             }
             else {

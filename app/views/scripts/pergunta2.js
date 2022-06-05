@@ -5,6 +5,7 @@ $('#form-p2').on('submit', function(e) {
     e.preventDefault();
     if (e.target.resposta.value === pergunta.resposta_certa) {
         alert("Certa resposta")
+        salvarPergunta(pergunta.id);
         novaPergunta();
     }
     else {
