@@ -119,4 +119,4 @@ function shuffle(array) {
     return array;
 }
 
-router(5);
+router(1);
