@@ -14,8 +14,11 @@
 
         $('#nickname_submit').submit(e => {
             e.preventDefault();
-            localStorage.setItem('nickname', $('#nickname').val())
-            novaPergunta()
+            let nickname = $('#nickname').val();
+            if (nickname) {
+                localStorage.setItem('nickname', nickname);
+                novaPergunta();
+            }
         })
     })
 </script>
