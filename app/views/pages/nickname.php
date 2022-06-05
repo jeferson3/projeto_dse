@@ -8,14 +8,14 @@
 
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         localStorage.removeItem('nickname');
         localStorage.removeItem('pergunta');
 
         $('#nickname_submit').submit(e => {
             e.preventDefault();
-            localStorage.setItem('nickname', $('#nickname').val())
-            novaPergunta()
+            localStorage.setItem('nickname', $('#nickname').val()); 
+            novaPergunta();
         })
     })
 </script>

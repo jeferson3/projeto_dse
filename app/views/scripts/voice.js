@@ -20,7 +20,7 @@ btnSpeak.addEventListener('click', () => {
   // console.log(`Voice: ${voice.name} and Lang: ${voice.lang}`);
   voice.voiceURI = voice.name; //voiceURI busca o servidor da voz escolhida, no caso, pt-BR defnido em voice.name
   msg.lang = voice.lang; // Define o idioma a ser utilizado para a fala, no caso, o que foi definido para voice.lang
-  
+
   speechSynthesis.speak(msg); //executa a voz
   
 

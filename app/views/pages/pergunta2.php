@@ -1,4 +1,4 @@
-<div class="pergunta">
+<div class="pergunta" id="mensagem">
     <p>Clique na imagem abaixo para ouvir o áudio e escreva no campo o nome que você ouviu</p>
     <img src="app/views/images/voice.png" alt="Voice image" class="voice" id="btnSpeak">
     <form id="form-p2" autocomplete="off">

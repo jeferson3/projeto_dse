@@ -11,9 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Koulen&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= BASE_URL ?>/app/views/animacao/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
+    <ion-icon id="music-control" name="volume-mute-sharp"></ion-icon>
     <ul id="animacao"></ul>
     <div class="container">
 
@@ -21,7 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="<?= BASE_URL ?>/app/views/scripts/main.js"></script>
     <script src='<?= BASE_URL ?>/app/views/animacao/script.js'></script>
-   
+
 </body>
 
 </html>
