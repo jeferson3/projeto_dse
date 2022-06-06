@@ -11,6 +11,6 @@ $perguntasModel = new Perguntas();
 $perguntasRespondidas = json_decode($_POST['perguntasRespondidas'], true);
 
 $perguntas = $perguntasModel->listarPeguntaComRespostas($perguntasRespondidas);
-echo json_encode($perguntas[0]);
+echo json_encode($perguntas);
 
 die();

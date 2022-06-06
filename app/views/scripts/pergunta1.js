@@ -51,12 +51,14 @@ function adicionarResposta(li) {
         li.innerHTML = '';
         if (arr_resposta.indexOf('') == -1) {            
             if (palavra === arr_resposta.toString().replace(/\,/g, '')){
-                alert("Certa resposta");
                 salvarPergunta(pergunta.id);
-                novaPergunta();
+                mostrarMensagem(1);               
+                setTimeout(() => {
+                    novaPergunta();
+                }, 2000);   
             }
             else {
-                alert("Resposta errada!");
+                mostrarMensagem(2);
                 children.forEach(el => {
                     removerResposta(el);
                 });
@@ -81,21 +83,3 @@ function removerResposta(li) {
 
 }
 
-
-function shuffle(array) {
-    var m = array.length, t, i;
-
-    // While there remain elements to shuffle…
-    while (m) {
-
-        // Pick a remaining element…
-        i = Math.floor(Math.random() * m--);
-
-        // And swap it with the current element.
-        t = array[m];
-        array[m] = array[i];
-        array[i] = t;
-    }
-
-    return array;
-}

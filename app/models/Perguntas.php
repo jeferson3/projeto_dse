@@ -35,11 +35,10 @@ final class Perguntas extends BaseModel implements JsonSerializable {
     public function listarPeguntaComRespostas($perguntasRespondidas)
     {
         $perguntasRespondidas = "('" . implode("','", $perguntasRespondidas) . "')";
-        $perguntas = $this->listarDados(" id not in ${perguntasRespondidas} ", " rand() LIMIT 1");
-        foreach ($perguntas as $pergunta){
-            $pergunta->respostas = $this->respostasModel->buscarPeloTipo($pergunta->tipo);
-        }
-        return $perguntas;
+        $pergunta = $this->listarDados(" id not in ${perguntasRespondidas} ", " rand() LIMIT 1");
+        $pergunta = empty($pergunta) ? [] : $pergunta[0];
+        if (!empty($pergunta)) $pergunta->respostas = $this->respostasModel->buscarPeloTipo($pergunta->tipo, $pergunta->resposta_certa, ' rand() LIMIT 3 ');
+        return $pergunta;
     }
 
 }

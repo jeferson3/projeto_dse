@@ -38,11 +38,13 @@ class BaseModel {
 
     /**
      * @param string|null $tipo
+     * @param string $resposta_certa
+     * @param string $order
      * @return mixed
      */
-    public function buscarPeloTipo(string $tipo = null)
+    public function buscarPeloTipo(string $tipo, string $resposta_certa, string $order = "")
     {
-        $query = "SELECT * FROM " . $this->tabela . " WHERE tipo = '${tipo}'";
+        $query = "SELECT * FROM " . $this->tabela . " WHERE tipo = '${tipo}' AND resposta not like '%${resposta_certa}%' order by ${order}";
         $query = $this->con->query($query);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
